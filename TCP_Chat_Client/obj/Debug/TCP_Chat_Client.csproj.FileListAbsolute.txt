@@ -5,3 +5,6 @@ C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\obj\Debug\TCP_Chat_Client.c
 C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\obj\Debug\TCP_Chat_Client.csproj.CoreCompileInputs.cache
 C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\obj\Debug\TCP_Chat_Client.exe
 C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\obj\Debug\TCP_Chat_Client.pdb
+C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rnkdi\source\repos\TCP_Chat\TCP_Chat_Client\obj\Debug\TCP_Chat_Client.csproj.CopyComplete
