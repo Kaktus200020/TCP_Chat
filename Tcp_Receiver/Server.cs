@@ -18,6 +18,7 @@ namespace Tcp_Receiver
         private bool isConnected = false;
         public bool IsConnected { get { return isConnected; } set { isConnected = value; } }
         public int X { get; set; }
+        public int Y { get; set; }
         public Server()
         {
             
@@ -43,6 +44,7 @@ namespace Tcp_Receiver
                 string text = Utility.GetMessage(socket_client);
                 Hero hero = JsonConvert.DeserializeObject<Hero>(text);
                 X = hero.X;
+                Y = hero.Y;
             }
             
         }

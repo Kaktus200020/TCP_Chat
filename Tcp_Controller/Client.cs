@@ -16,6 +16,7 @@ namespace Tcp_Controller
         Socket socket_sender;
         public Client()
         {
+            hero.Weapon = new Weapon();
             socket_sender = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress address = IPAddress.Parse("127.0.0.1");
             IPEndPoint endPoint = new IPEndPoint(address, 7632);
@@ -25,6 +26,21 @@ namespace Tcp_Controller
         public void MoveRight()
         {
             hero.X += 50;
+            Utility.JsonSerializeAndSend(hero, socket_sender);
+        }
+        public void MoveLeft()
+        {
+            hero.X -= 50;
+            Utility.JsonSerializeAndSend(hero, socket_sender);
+        }
+        public void MoveUp()
+        {
+            hero.Y -= 50;
+            Utility.JsonSerializeAndSend(hero, socket_sender);
+        }
+        public void MoveDown()
+        {
+            hero.Y += 50;
             Utility.JsonSerializeAndSend(hero, socket_sender);
         }
     }

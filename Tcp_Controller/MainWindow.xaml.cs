@@ -39,7 +39,17 @@ namespace Tcp_Controller
 
         private void ButtonLeft_Click(object sender, RoutedEventArgs e)
         {
-            
+            client.MoveLeft();
+        }
+
+        private void ButtonUp_Click(object sender, RoutedEventArgs e)
+        {
+            client.MoveUp();
+        }
+
+        private void ButtonDown_Click(object sender, RoutedEventArgs e)
+        {
+            client.MoveDown();
         }
     }
 }

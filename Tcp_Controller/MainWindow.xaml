@@ -11,6 +11,10 @@
             <Button Width="100" Height="40" Content="LEFT" Margin="10" Click="ButtonLeft_Click"/>
             <Button Width="100" Height="40" Content="RIGHT" Margin="10" Click="ButtonRight_Click"/>
         </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <Button Width="100" Height="40" Content="UP" Margin="40" Click="ButtonUp_Click"/>
+            <Button Width="100" Height="40" Content="DOWN" Margin="40" Click="ButtonDown_Click"/>
+        </StackPanel>
         <Button Width="100" Height="20" Content="CONNECT" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="ButtonConnect_Click"/>
     </Grid>
 </Window>

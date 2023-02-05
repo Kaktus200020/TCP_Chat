@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TCPChat_Library.Models
 {
-    public class Hero
+    public class Weapon
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public Weapon Weapon { get; set; }
+        public int Damage { get; set; } = 7;
+        public int SpeedAmmo { get; set; } = 6;
     }
 }
