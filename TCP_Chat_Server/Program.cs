@@ -9,6 +9,8 @@ using System.Threading;
 using System.Xml.Serialization;
 using System.IO;
 using Newtonsoft.Json;
+using TCPChat_Library;
+using TCPChat_Library.Models;
 
 namespace TCP_Chat_Server
 {
@@ -42,25 +44,15 @@ namespace TCP_Chat_Server
 
             Console.ReadLine();
         }
-        public static void SendMessage(Socket socket, string message)
-        {
-            byte[] bytes_answer = Encoding.Unicode.GetBytes(message);
-            socket.Send(bytes_answer);
-        }
-        public static string GetMessage(Socket socket)
-        {
-            byte[] bytes = new byte[1024];
-            int num_bytes = socket.Receive(bytes);
-            return Encoding.Unicode.GetString(bytes, 0, num_bytes);
-
-        }
+        
+        
         public static void GetMessageForManager(object socketObj)
         {
             Socket socket = (Socket)socketObj;
-            string name = GetMessage(socket);
+            string name = Utility.GetMessage(socket);
             while (true)
             {
-                messageFromUser = GetMessage(socket);
+                messageFromUser = Utility.GetMessage(socket);
                 Console.WriteLine("[" + name + "]: " + messageFromUser);
                 //Раскодировать сообщение от пользователя
                 //ProcessCommandWord(socket,messageFromUser);
@@ -68,7 +60,7 @@ namespace TCP_Chat_Server
                 //byte[] bytes = new byte[1024];
                 //int num_bytes = socket.Receive(bytes);
                 //ProcessCommandXML (socket, bytes, num_bytes);
-                ProcessCommandJson(socket, messageFromUser);
+                Utility.JsonDeserialize(messageFromUser);
             }
 
         }
@@ -76,7 +68,7 @@ namespace TCP_Chat_Server
         {
             foreach (var socket in sockets)
             {
-                SendMessage(socket, message);
+                Utility.SendMessage(socket, message);
             }
         }
         public static void SendMessageForManager(object socketObj)
@@ -107,7 +99,7 @@ namespace TCP_Chat_Server
             if (messageFromUser == "color")
             {
                 Console.WriteLine("Пользователь прислал команду color");
-                SendMessage(socket, "сервер принял вашу команду");
+                Utility.SendMessage(socket, "сервер принял вашу команду");
             }
         }
         private static void ProcessCommandCoding(Socket socket, string text)

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 using Newtonsoft.Json;
+using TCPChat_Library;
+using TCPChat_Library.Models;
 
 namespace TCP_Chat_Client
 {
@@ -17,6 +19,7 @@ namespace TCP_Chat_Client
         {
             Console.Title = "Client";
             Console.WriteLine("[CLIENT]");
+
             Socket socket_sender = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress address = IPAddress.Parse("127.0.0.1");
             IPEndPoint endPoint = new IPEndPoint(address, 7632);
@@ -25,14 +28,14 @@ namespace TCP_Chat_Client
             socket_sender.Connect(endPoint);
             Console.WriteLine("Введите Имя: ");
             string name = Console.ReadLine();
-            SendMessage(socket_sender, name);
+            Utility.SendMessage(socket_sender, name);
             Action<Socket> taskSendMessage = SendMessageForTask;
             taskSendMessage.BeginInvoke(socket_sender, null, null);
             
             
             while(true)
             { 
-                string answer = GetMessage(socket_sender);
+                string answer = Utility.GetMessage(socket_sender);
                 Console.WriteLine(answer);  
             }
             Console.ReadLine();
@@ -47,41 +50,23 @@ namespace TCP_Chat_Client
                     Platypus platypus = new Platypus()
                     {
                         Size = 2,Color="Brown"
-                        
                     };
-                    XmlSerializer xmlData = new XmlSerializer(typeof(Platypus));
-                    MemoryStream stream = new MemoryStream();
-                    xmlData.Serialize(stream, platypus);
-                    stream.Position = 0;
-                    Platypus platypus2 = xmlData.Deserialize(stream) as Platypus;
-                    byte[] bytes = stream.ToArray();
-                    //SendMessage(socket, message);
-                    socket.Send(bytes);
+                    Utility.XmlSerializeAndSend(platypus, socket);
                 }
                 if(message=="dumpling")
                 {
                     Dumpling dumpling = new Dumpling() {IsFried=true , Name="Иван", Description="Его имя Иван, он крутой" };
-                    string text=JsonConvert.SerializeObject(dumpling);
-                    SendMessage(socket, text);
+                    //string text=JsonConvert.SerializeObject(dumpling);
+                    Utility.JsonSerializeAndSend(dumpling, socket);
                 }
                 else
                 {
-                    SendMessage(socket, message);
+                    Utility.SendMessage(socket, message);
                 }
                 
             }
         }
-        public static void SendMessage(Socket socket, string message)
-        {
-            byte[] bytes_answer = Encoding.Unicode.GetBytes(message);
-            socket.Send(bytes_answer);
-        }
-        public static string GetMessage(Socket socket)
-        {
-            byte[] bytes = new byte[1024];
-            int num_bytes = socket.Receive(bytes);
-            return Encoding.Unicode.GetString(bytes, 0, num_bytes);
-
-        }
+        
+        
     }
 }

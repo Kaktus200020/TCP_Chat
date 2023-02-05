@@ -1,0 +1,9 @@
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\bin\Debug\TCPChat_Library.dll
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\bin\Debug\TCPChat_Library.pdb
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\obj\Debug\TCPChat_Library.csprojAssemblyReference.cache
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\obj\Debug\TCPChat_Library.csproj.CoreCompileInputs.cache
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\obj\Debug\TCPChat_Library.dll
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\obj\Debug\TCPChat_Library.pdb
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rnkdi\source\repos\TCP_Chat\TCPChat_Library\obj\Debug\TCPChat_Library.csproj.CopyComplete

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCP_Chat_Client
+namespace TCPChat_Library.Models
 {
     public class Dumpling
     {
         public bool IsFried { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; } 
     }
 }

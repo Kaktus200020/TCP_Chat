@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCP_Chat_Server
+namespace TCPChat_Library.Models
 {
-    public class Platypus
+    public class Hero
     {
-        public int Size { get; set; }
-        public string Color { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }
